@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 import logo from "@/assets/logo.png";
 import Inchicore from "@/assets/Inchicore.jpeg"
-import Ecovillage from "@/assets/ecovillage.jpeg"
+import Ecovillage from "@/assets/ecovillage.jpg"
 import Palmerstonrd from "@/assets/palmerston_rd_reno.png"
 import emailjs from "@emailjs/browser";
 
