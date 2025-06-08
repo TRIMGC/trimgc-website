@@ -11,6 +11,7 @@ import logo from "@/assets/logo.png";
 import Inchicore from "@/assets/Inchicore.jpeg"
 import Ecovillage from "@/assets/ecovillage.jpg"
 import Palmerstonrd from "@/assets/palmerston_rd_reno.png"
+import Ryan from "@/assets/ryanheapesportrait.png"
 import emailjs from "@emailjs/browser";
 
 
@@ -180,7 +181,7 @@ const TrimGCWebsite: React.FC = () => {
 
           {/* right column image */}
           <img
-            src={Inchicore}
+            src={Ryan}
             alt="TRIM crew at work"
             className="rounded-2xl shadow-lg"
           />
