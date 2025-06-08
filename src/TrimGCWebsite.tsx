@@ -14,6 +14,9 @@ import Palmerstonrd from "@/assets/palmerston_rd_reno.png";
 import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
 
+console.log("PUBLIC KEY:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+
 /* Placeholder images – swap with real project photos */
 const galleryImages = [
   {
