@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 import Inchicore from "@/assets/Inchicore.jpeg";
 import Ecovillage from "@/assets/ecovillage.jpg";
-import Palmerstonrd from "@/assets/palmerston_rd_reno.png";
+import Beechpark from "@/assets/beechpark_leixlip_extension.png";
 import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
 
@@ -21,14 +21,14 @@ console.log("PUBLIC KEY:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 /* Placeholder images – swap with real project photos */
 const galleryImages = [
+    {
+    src: Beechpark,
+    alt: "Beechpark, Leixlip.\nExtension to existing residential property.",
+  },
   {
     src: Inchicore,
     alt:
       "DART+ Commissioning Facility, Inchicore.\nRyan Heapes, Site Manager for this project for \nPrecision Construction Ltd.",
-  },
-  {
-    src: Palmerstonrd,
-    alt: "Palmerston Road Renovation",
   },
   {
     src: Ecovillage,
