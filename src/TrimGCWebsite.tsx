@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 
 import logo from "@/assets/logo.png";
 import Inchicore from "@/assets/Inchicore.jpeg"
+import Ecovillage from "@/assets/ecovillage.jpeg"
 import Palmerstonrd from "@/assets/palmerston_rd_reno.png"
 import emailjs from "@emailjs/browser";
 
@@ -16,16 +17,16 @@ import emailjs from "@emailjs/browser";
 /* Placeholder images – swap with real project photos */
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=800&q=80",
-    alt: "Residential build exterior",
+    src: Inchicore,
+    alt: "DART+ Commisioning Facility, Inchicore",
   },
   {
     src: Palmerstonrd,
     alt: "Palmerston Road Renovation",
   },
   {
-    src: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
-    alt: "Commercial office fit-out",
+    src: Ecovillage,
+    alt: "Design proposal for Ecovillage",
   },
 ] as const;
 
