@@ -8,8 +8,8 @@ import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 
 import logo from "@/assets/logo.png";
-import Inchicore from "@/assets/Inchicore.jpeg"// file must exist at src/assets/logo.png
-
+import Inchicore from "@/assets/Inchicore.jpeg"
+import Palmerstonrd from "@/assets/palmerston_rd_reno.png"
 import emailjs from "@emailjs/browser";
 
 
@@ -20,8 +20,8 @@ const galleryImages = [
     alt: "Residential build exterior",
   },
   {
-    src: "https://images.unsplash.com/photo-1506452464445-2c985332a443?auto=format&fit=crop&w=800&q=80",
-    alt: "Open-plan kitchen renovation",
+    src: Palmerstonrd,
+    alt: "Palmerston Road Renovation",
   },
   {
     src: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
