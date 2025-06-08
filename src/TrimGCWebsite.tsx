@@ -15,6 +15,7 @@ import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
 
 import { SiTiktok } from "react-icons/si";
+import { FiMenu, FiX } from "react-icons/fi";
 
 console.log("ENV KEYS:", Object.keys(import.meta.env));
 console.log("PUBLIC KEY:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -60,6 +61,7 @@ const TrimGCWebsite: React.FC = () => {
     startDate: "",
     availability: "",
   });
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -106,47 +108,99 @@ const TrimGCWebsite: React.FC = () => {
     <div className="font-sans text-slate-700 scroll-smooth">
       {/* ───── Hero / Header ───── */}
       <header className="bg-[#0E3F2A] text-white">
-        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Logo + title */}
-          <div className="flex items-center gap-4">
+        <div className="container mx-auto px-6 py-6">
+          {/* Mobile layout */}
+          <div className="flex flex-col items-center md:hidden">
             <img
               src={logo}
               alt="TRIM logo"
-              className="h-14 w-14 md:h-16 md:w-16"
+              className="h-20 w-20 mb-2"
             />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            <h1 className="text-3xl font-bold text-center mb-2">
               TRIM&nbsp;General&nbsp;Contractors
             </h1>
+            <button
+              className="mt-2 text-white focus:outline-none"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? <FiX size={32} /> : <FiMenu size={32} />}
+            </button>
+            {menuOpen && (
+              <div className="flex flex-col items-center gap-3 mt-4 w-full">
+                <Button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="w-4/5 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+                >
+                  Request&nbsp;A&nbsp;Quote
+                </Button>
+                <Button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    window.location.href = "tel:+353874770882";
+                  }}
+                  className="w-4/5 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+                >
+                  Call&nbsp;Our&nbsp;Team
+                </Button>
+                <a
+                  href="https://www.tiktok.com/@trimgeneralcontractors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-4/5"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <Button className="flex items-center gap-2 w-full px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow">
+                    <SiTiktok className="h-5 w-5" />
+                    TikTok
+                  </Button>
+                </a>
+              </div>
+            )}
           </div>
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* Request a Quote */}
-            <Button
-              onClick={() =>
-                document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
-            >
-              Request&nbsp;A&nbsp;Quote
-            </Button>
-            {/* Call Our Team */}
-            <Button
-              onClick={() => (window.location.href = "tel:+353874770882")}
-              className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
-            >
-              Call&nbsp;Our&nbsp;Team
-            </Button>
-            {/* TikTok link */}
-            <a
-              href="https://www.tiktok.com/@trimgeneralcontractors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="flex items-center gap-2 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow">
-                <SiTiktok className="h-5 w-5" />
-                TikTok
+          {/* Desktop layout */}
+          <div className="hidden md:flex flex-row items-center justify-between gap-4">
+            {/* Logo + title */}
+            <div className="flex items-center gap-4">
+              <img
+                src={logo}
+                alt="TRIM logo"
+                className="h-16 w-16"
+              />
+              <h1 className="text-4xl font-bold">
+                TRIM&nbsp;General&nbsp;Contractors
+              </h1>
+            </div>
+            {/* Action buttons */}
+            <div className="flex flex-row gap-3">
+              <Button
+                onClick={() =>
+                  document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+              >
+                Request&nbsp;A&nbsp;Quote
               </Button>
-            </a>
+              <Button
+                onClick={() => (window.location.href = "tel:+353874770882")}
+                className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+              >
+                Call&nbsp;Our&nbsp;Team
+              </Button>
+              <a
+                href="https://www.tiktok.com/@trimgeneralcontractors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="flex items-center gap-2 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow">
+                  <SiTiktok className="h-5 w-5" />
+                  TikTok
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </header>
