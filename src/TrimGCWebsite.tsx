@@ -14,14 +14,17 @@ import Palmerstonrd from "@/assets/palmerston_rd_reno.png";
 import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
 
+console.log("ENV KEYS:", Object.keys(import.meta.env));
 console.log("PUBLIC KEY:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
 
 
 /* Placeholder images – swap with real project photos */
 const galleryImages = [
   {
     src: Inchicore,
-    alt: "DART+ Commisioning Facility, Inchicore",
+    alt:
+      "DART+ Commissioning Facility, Inchicore.\nRyan Heapes, Site Manager for this project for \nPrecision Construction Ltd.",
   },
   {
     src: Palmerstonrd,
@@ -240,25 +243,38 @@ const TrimGCWebsite: React.FC = () => {
         </div>
       </section>
 
-      {/* ───── Gallery ───── */}
-      <section id="gallery" className="py-16 bg-slate-50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">Our Work</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {galleryImages.map((img, i) => (
-              <motion.img
-                key={i}
-                {...img}
-                className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: true, amount: 0.2 }}
-              />
-            ))}
+{/* ───── Gallery ───── */}
+<section id="gallery" className="py-16 bg-slate-50">
+  <div className="container mx-auto px-6">
+    <h2 className="text-3xl font-bold text-center mb-10">Our Work</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      {galleryImages.map((img, i) => (
+        <motion.div
+          key={i}
+          className="relative group w-full h-64 overflow-hidden rounded-2xl shadow-lg"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: i * 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 
+                          flex items-center justify-center transition-opacity px-4">
+            <span className="text-white text-lg text-center whitespace-pre-line">
+              {img.alt}
+            </span>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* ───── Quote Form ───── */}
       <section id="quote" className="py-16 bg-white">
