@@ -95,13 +95,14 @@ const TrimGCWebsite: React.FC = () => {
       {/* ───── Hero / Header ───── */}
       <header className="bg-[#0E3F2A] text-white">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col md:flex-row items-center
+                justify-between gap-4 md:gap-6">
             <img
               src={logo}
               alt="TRIM logo"
               className="h-14 w-14 md:h-16 md:w-16"
             />
-            <h1 className="text-3xl md:text-4xl font-bold">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
               TRIM&nbsp;General&nbsp;Contractors
             </h1>
           </div>
@@ -124,7 +125,7 @@ const TrimGCWebsite: React.FC = () => {
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
           {/* left column */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold">About Us</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">About&nbsp;Us</h2>
 
             <p className="text-xl font-semibold">
               Building trust. Raising standards.
