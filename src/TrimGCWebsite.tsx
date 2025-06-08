@@ -69,7 +69,7 @@ const TrimGCWebsite: React.FC = () => {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // template_new_quote
         { ...formData },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
       /* 2) send auto-reply to the visitor */
@@ -77,7 +77,7 @@ const TrimGCWebsite: React.FC = () => {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_AUTOREPLY_ID, // template_lead_autoreply
         { name: formData.name, email: formData.email },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
       alert("Thanks! Your request was sent successfully.");
