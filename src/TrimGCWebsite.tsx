@@ -14,6 +14,8 @@ import Beechpark from "@/assets/beechpark_leixlip_extension.png";
 import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
 
+import { SiTiktok } from "react-icons/si";
+
 console.log("ENV KEYS:", Object.keys(import.meta.env));
 console.log("PUBLIC KEY:", import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
@@ -104,8 +106,9 @@ const TrimGCWebsite: React.FC = () => {
     <div className="font-sans text-slate-700 scroll-smooth">
       {/* ───── Hero / Header ───── */}
       <header className="bg-[#0E3F2A] text-white">
-        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+        <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Logo + title */}
+          <div className="flex items-center gap-4">
             <img
               src={logo}
               alt="TRIM logo"
@@ -115,17 +118,36 @@ const TrimGCWebsite: React.FC = () => {
               TRIM&nbsp;General&nbsp;Contractors
             </h1>
           </div>
-
-          <Button
-            onClick={() =>
-              document
-                .getElementById("quote")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="mt-4 md:mt-0 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
-          >
-            Request&nbsp;A&nbsp;Quote
-          </Button>
+          {/* Action buttons */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            {/* Request a Quote */}
+            <Button
+              onClick={() =>
+                document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+            >
+              Request&nbsp;A&nbsp;Quote
+            </Button>
+            {/* Call Our Team */}
+            <Button
+              onClick={() => (window.location.href = "tel:+353874770882")}
+              className="px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow"
+            >
+              Call&nbsp;Our&nbsp;Team
+            </Button>
+            {/* TikTok link */}
+            <a
+              href="https://www.tiktok.com/@trimgeneralcontractors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="flex items-center gap-2 px-6 py-2 rounded-xl bg-white text-[#0E3F2A] font-semibold shadow">
+                <SiTiktok className="h-5 w-5" />
+                TikTok
+              </Button>
+            </a>
+          </div>
         </div>
       </header>
 
@@ -135,146 +157,100 @@ const TrimGCWebsite: React.FC = () => {
           {/* left column */}
           <div className="space-y-6">
             <h2 className="text-2xl sm:text-3xl font-bold mb-6">About&nbsp;Us</h2>
-
-            <p className="text-xl font-semibold">
-              Building trust. Raising standards.
-            </p>
-
+            <p className="text-xl font-semibold">Building trust. Raising standards.</p>
             <p>
               Trim General Contractors (<strong>TRIM</strong>) is a fresh face
               powered by seasoned hands. After more than a decade managing
               complex builds for leading firms, our founding team created TRIM
               to deliver a smarter, more personal construction experience.
             </p>
-
             {/* What We Do */}
             <h3 className="text-2xl font-bold mt-4">What We Do</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>
-                <strong>Ground-up construction</strong> – from green-field sites
-                to ribbon cuttings.
-              </li>
-              <li>
-                <strong>Major renovations &amp; expansions</strong> – breathing
-                new life into existing spaces.
-              </li>
-              <li>
-                <strong>Tenant improvements &amp; fit-outs</strong> – fast-track
-                interiors with minimal downtime.
-              </li>
-              <li>
-                <strong>Design-build partnerships</strong> – single-source
-                accountability from concept to completion.
-              </li>
+              <li><strong>Ground-up construction</strong> – from green-field sites to ribbon cuttings.</li>
+              <li><strong>Major renovations &amp; expansions</strong> – breathing new life into existing spaces.</li>
+              <li><strong>Tenant improvements &amp; fit-outs</strong> – fast-track interiors with minimal downtime.</li>
+              <li><strong>Design-build partnerships</strong> – single-source accountability from concept to completion.</li>
             </ul>
-
             {/* How We Work */}
             <h3 className="text-2xl font-bold mt-4">How We Work</h3>
             <ol className="list-decimal list-inside space-y-1">
-              <li>
-                <strong>Listen first</strong> – understand vision, budget,
-                constraints.
-              </li>
-              <li>
-                <strong>Plan strategically</strong> – detailed schedules,
-                proactive risk management.
-              </li>
-              <li>
-                <strong>Build safely</strong> – rigorous protocols protect
-                people and property.
-              </li>
-              <li>
-                <strong>Communicate openly</strong> – clear updates keep you in
-                control.
-              </li>
+              <li><strong>Listen first</strong> – understand vision, budget, constraints.</li>
+              <li><strong>Plan strategically</strong> – detailed schedules, proactive risk management.</li>
+              <li><strong>Build safely</strong> – rigorous protocols protect people and property.</li>
+              <li><strong>Communicate openly</strong> – clear updates keep you in control.</li>
             </ol>
-
-            {/* Promise */}
+            {/* Our Promise */}
             <h3 className="text-2xl font-bold mt-4">Our Promise</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li>
-                <strong>On-time delivery</strong> – milestones met, schedules
-                respected.
-              </li>
-              <li>
-                <strong>Transparent costs</strong> – honest, itemized pricing.
-              </li>
-              <li>
-                <strong>Quality craftsmanship</strong> – every detail is our
-                signature.
-              </li>
+              <li><strong>On-time delivery</strong> – milestones met, schedules respected.</li>
+              <li><strong>Transparent costs</strong> – honest, itemized pricing.</li>
+              <li><strong>Quality craftsmanship</strong> – every detail is our signature.</li>
             </ul>
-
             {/* Looking Ahead */}
             <h3 className="text-2xl font-bold mt-4">Looking Ahead</h3>
-            <p>
-              We’re ready to turn blueprints into benchmarks. Let’s create
-              spaces that stand the test of time.
-            </p>
-
-            <p className="italic">
-              Trim General Contractors — built on experience, driven by
-              integrity.
-            </p>
+            <p>We’re ready to turn blueprints into benchmarks. Let’s create spaces that stand the test of time.</p>
+            <p className="italic">Trim General Contractors — built on experience, driven by integrity.</p>
           </div>
-
-          {/* right column – portrait + director’s message */}
-          <div className="flex flex-col items-center gap-4">
+          {/* right column */}
+          <div className="flex flex-col items-start gap-4">
             <img
               src={Ryan}
               alt="Ryan Heapes — Managing Director"
-              className="rounded-2xl shadow-lg max-w-full h-auto"
+              className="rounded-2xl shadow-lg w-2/5 sm:w-1/2 md:w-3/5 h-auto"
             />
-
-            <div className="max-w-prose text-center space-y-2">
+            <div className="max-w-prose space-y-2">
               <h3 className="text-xl font-semibold">Director’s Message</h3>
-              <p>
-                “At <strong>TRIM</strong>, every project is an opportunity to
-                build lasting relationships as well as great spaces. My
-                commitment is simple: clear communication, uncompromising
-                safety, and craftsmanship that stands the test of time. I look
-                forward to working with you.”
+              <p className="text-sm leading-relaxed">
+                “At <strong>TRIM</strong>, every project is an opportunity to build lasting
+                relationships as well as great spaces. My commitment is simple: clear
+                communication, uncompromising safety, and craftsmanship that stands the
+                test of time. I look forward to working with you.”
               </p>
-              <p className="font-medium">
-                — Ryan&nbsp;Heapes, Managing&nbsp;Director
-              </p>
+              <p className="font-medium">— Ryan Heapes, Managing Director</p>
             </div>
+            <Button
+              onClick={() =>
+                document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="mt-auto px-8 py-4 rounded-2xl bg-[#0E3F2A] hover:bg-[#125339] text-white text-lg md:text-xl font-semibold shadow-lg"
+            >
+              Free Consultation
+            </Button>
           </div>
         </div>
       </section>
 
-{/* ───── Gallery ───── */}
-<section id="gallery" className="py-16 bg-slate-50">
-  <div className="container mx-auto px-6">
-    <h2 className="text-3xl font-bold text-center mb-10">Our Work</h2>
-    <div className="grid md:grid-cols-3 gap-6">
-      {galleryImages.map((img, i) => (
-        <motion.div
-          key={i}
-          className="relative group w-full h-64 overflow-hidden rounded-2xl shadow-lg"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: i * 0.1 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <img
-            src={img.src}
-            alt={img.alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 
-                          flex items-center justify-center transition-opacity px-4">
-            <span className="text-white text-lg text-center whitespace-pre-line">
-              {img.alt}
-            </span>
+      {/* ───── Gallery ───── */}
+      <section id="gallery" className="py-16 bg-slate-50">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-10">Our Work</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {galleryImages.map((img, i) => (
+              <motion.div
+                key={i}
+                className="relative group w-full h-64 overflow-hidden rounded-2xl shadow-lg"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 
+                                flex items-center justify-center transition-opacity px-4">
+                  <span className="text-white text-lg text-center whitespace-pre-line">
+                    {img.alt}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+        </div>
+      </section>
 
       {/* ───── Quote Form ───── */}
       <section id="quote" className="py-16 bg-white">
@@ -282,7 +258,6 @@ const TrimGCWebsite: React.FC = () => {
           <h2 className="text-3xl font-bold text-center mb-10">
             Request A Quote
           </h2>
-
           <form
             onSubmit={handleSubmit}
             className="bg-slate-50 p-8 rounded-2xl shadow-xl grid gap-6"
@@ -299,7 +274,6 @@ const TrimGCWebsite: React.FC = () => {
                 required
               />
             </div>
-
             {/* Email */}
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
@@ -313,7 +287,6 @@ const TrimGCWebsite: React.FC = () => {
                 required
               />
             </div>
-
             {/* Phone */}
             <div className="grid gap-2">
               <Label htmlFor="phone">Phone</Label>
@@ -327,7 +300,6 @@ const TrimGCWebsite: React.FC = () => {
                 required
               />
             </div>
-
             {/* Address */}
             <div className="grid gap-2">
               <Label htmlFor="address">Address</Label>
@@ -340,7 +312,6 @@ const TrimGCWebsite: React.FC = () => {
                 required
               />
             </div>
-
             {/* Details */}
             <div className="grid gap-2">
               <Label htmlFor="details">Project Details</Label>
@@ -354,7 +325,6 @@ const TrimGCWebsite: React.FC = () => {
                 required
               />
             </div>
-
             {/* Budget & Start Date */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="grid gap-2">
@@ -381,7 +351,6 @@ const TrimGCWebsite: React.FC = () => {
                 />
               </div>
             </div>
-
             {/* Availability */}
             <div className="grid gap-2">
               <Label htmlFor="availability">
@@ -395,7 +364,6 @@ const TrimGCWebsite: React.FC = () => {
                 onChange={handleChange}
               />
             </div>
-
             <Button
               type="submit"
               className="mt-4 w-full py-3 text-lg font-semibold rounded-2xl shadow-md bg-[#0E3F2A] hover:bg-[#125339] text-white"
