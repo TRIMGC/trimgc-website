@@ -8,12 +8,11 @@ import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 
 import logo from "@/assets/logo.png";
-import Inchicore from "@/assets/Inchicore.jpeg"
-import Ecovillage from "@/assets/ecovillage.jpg"
-import Palmerstonrd from "@/assets/palmerston_rd_reno.png"
-import Ryan from "@/assets/ryanheapesportrait.png"
+import Inchicore from "@/assets/Inchicore.jpeg";
+import Ecovillage from "@/assets/ecovillage.jpg";
+import Palmerstonrd from "@/assets/palmerston_rd_reno.png";
+import Ryan from "@/assets/ryanheapesportrait.png";
 import emailjs from "@emailjs/browser";
-
 
 /* Placeholder images – swap with real project photos */
 const galleryImages = [
@@ -59,46 +58,48 @@ const TrimGCWebsite: React.FC = () => {
   ) => setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    /* 1) send the quote details to you */
-    await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,     // template_new_quote
-      { ...formData },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
+    try {
+      /* 1) send the quote details to you */
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // template_new_quote
+        { ...formData },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    /* 2) send auto-reply to the visitor */
-    await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_AUTOREPLY_ID,    // template_lead_autoreply
-      { name: formData.name, email: formData.email },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    );
+      /* 2) send auto-reply to the visitor */
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTOREPLY_ID, // template_lead_autoreply
+        { name: formData.name, email: formData.email },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    alert("Thanks! Your request was sent successfully.");
-    setFormData({
-      name: "", email: "", phone: "", address: "",
-      details: "", budget: "", startDate: "", availability: "",
-    });
-  } catch (err) {
-    console.error(err);
-    alert("Sorry—something went wrong. Please try again.");
-  }
-};
-
-
+      alert("Thanks! Your request was sent successfully.");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        details: "",
+        budget: "",
+        startDate: "",
+        availability: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Sorry—something went wrong. Please try again.");
+    }
+  };
 
   return (
     <div className="font-sans text-slate-700 scroll-smooth">
-
       {/* ───── Hero / Header ───── */}
       <header className="bg-[#0E3F2A] text-white">
         <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex flex-col md:flex-row items-center
-                justify-between gap-4 md:gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
             <img
               src={logo}
               alt="TRIM logo"
@@ -143,27 +144,59 @@ const TrimGCWebsite: React.FC = () => {
             {/* What We Do */}
             <h3 className="text-2xl font-bold mt-4">What We Do</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>Ground-up construction</strong> – from green-field sites to ribbon cuttings.</li>
-              <li><strong>Major renovations &amp; expansions</strong> – breathing new life into existing spaces.</li>
-              <li><strong>Tenant improvements &amp; fit-outs</strong> – fast-track interiors with minimal downtime.</li>
-              <li><strong>Design-build partnerships</strong> – single-source accountability from concept to completion.</li>
+              <li>
+                <strong>Ground-up construction</strong> – from green-field sites
+                to ribbon cuttings.
+              </li>
+              <li>
+                <strong>Major renovations &amp; expansions</strong> – breathing
+                new life into existing spaces.
+              </li>
+              <li>
+                <strong>Tenant improvements &amp; fit-outs</strong> – fast-track
+                interiors with minimal downtime.
+              </li>
+              <li>
+                <strong>Design-build partnerships</strong> – single-source
+                accountability from concept to completion.
+              </li>
             </ul>
 
             {/* How We Work */}
             <h3 className="text-2xl font-bold mt-4">How We Work</h3>
             <ol className="list-decimal list-inside space-y-1">
-              <li><strong>Listen first</strong> – understand vision, budget, constraints.</li>
-              <li><strong>Plan strategically</strong> – detailed schedules, proactive risk management.</li>
-              <li><strong>Build safely</strong> – rigorous protocols protect people and property.</li>
-              <li><strong>Communicate openly</strong> – clear updates keep you in control.</li>
+              <li>
+                <strong>Listen first</strong> – understand vision, budget,
+                constraints.
+              </li>
+              <li>
+                <strong>Plan strategically</strong> – detailed schedules,
+                proactive risk management.
+              </li>
+              <li>
+                <strong>Build safely</strong> – rigorous protocols protect
+                people and property.
+              </li>
+              <li>
+                <strong>Communicate openly</strong> – clear updates keep you in
+                control.
+              </li>
             </ol>
 
             {/* Promise */}
             <h3 className="text-2xl font-bold mt-4">Our Promise</h3>
             <ul className="list-disc list-inside space-y-1">
-              <li><strong>On-time delivery</strong> – milestones met, schedules respected.</li>
-              <li><strong>Transparent costs</strong> – honest, itemized pricing.</li>
-              <li><strong>Quality craftsmanship</strong> – every detail is our signature.</li>
+              <li>
+                <strong>On-time delivery</strong> – milestones met, schedules
+                respected.
+              </li>
+              <li>
+                <strong>Transparent costs</strong> – honest, itemized pricing.
+              </li>
+              <li>
+                <strong>Quality craftsmanship</strong> – every detail is our
+                signature.
+              </li>
             </ul>
 
             {/* Looking Ahead */}
@@ -179,12 +212,28 @@ const TrimGCWebsite: React.FC = () => {
             </p>
           </div>
 
-          {/* right column image */}
-          <img
-            src={Ryan}
-            alt="TRIM crew at work"
-            className="rounded-2xl shadow-lg"
-          />
+          {/* right column – portrait + director’s message */}
+          <div className="flex flex-col items-center gap-4">
+            <img
+              src={Ryan}
+              alt="Ryan Heapes — Managing Director"
+              className="rounded-2xl shadow-lg max-w-full h-auto"
+            />
+
+            <div className="max-w-prose text-center space-y-2">
+              <h3 className="text-xl font-semibold">Director’s Message</h3>
+              <p>
+                “At <strong>TRIM</strong>, every project is an opportunity to
+                build lasting relationships as well as great spaces. My
+                commitment is simple: clear communication, uncompromising
+                safety, and craftsmanship that stands the test of time. I look
+                forward to working with you.”
+              </p>
+              <p className="font-medium">
+                — Ryan&nbsp;Heapes, Managing&nbsp;Director
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -211,7 +260,9 @@ const TrimGCWebsite: React.FC = () => {
       {/* ───── Quote Form ───── */}
       <section id="quote" className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-10">Request A Quote</h2>
+          <h2 className="text-3xl font-bold text-center mb-10">
+            Request A Quote
+          </h2>
 
           <form
             onSubmit={handleSubmit}
@@ -348,7 +399,10 @@ const TrimGCWebsite: React.FC = () => {
           </p>
           <p>
             Email:&nbsp;
-            <a href="mailto:info@trimgc.ie" className="underline hover:no-underline">
+            <a
+              href="mailto:info@trimgc.ie"
+              className="underline hover:no-underline"
+            >
               info@trimgc.ie
             </a>
           </p>
