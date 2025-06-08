@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 
-import logo from "@/assets/logo.png"; // file must exist at src/assets/logo.png
+import logo from "@/assets/logo.png";
+import Inchicore from "@/assets/Inchicore.jpeg"// file must exist at src/assets/logo.png
 
 import emailjs from "@emailjs/browser";
 
@@ -59,40 +60,33 @@ const TrimGCWebsite: React.FC = () => {
   e.preventDefault();
 
   try {
-    // send the notification email to you
+    /* 1) send the quote details to you */
     await emailjs.send(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,   // template_new_quote
-      {
-        name:        formData.name,
-        email:       formData.email,
-        phone:       formData.phone,
-        address:     formData.address,
-        details:     formData.details,
-        budget:      formData.budget,
-        startDate:   formData.startDate,
-        availability: formData.availability,
-      },
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,     // template_new_quote
+      { ...formData },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    /* 2) send auto-reply to the visitor */
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_AUTOREPLY_ID,    // template_lead_autoreply
+      { name: formData.name, email: formData.email },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     );
 
     alert("Thanks! Your request was sent successfully.");
-    // clear the form
     setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      details: "",
-      budget: "",
-      startDate: "",
-      availability: "",
+      name: "", email: "", phone: "", address: "",
+      details: "", budget: "", startDate: "", availability: "",
     });
   } catch (err) {
     console.error(err);
     alert("Sorry—something went wrong. Please try again.");
   }
 };
+
 
 
   return (
@@ -184,7 +178,7 @@ const TrimGCWebsite: React.FC = () => {
 
           {/* right column image */}
           <img
-            src="https://images.unsplash.com/photo-1486578578017-300fdf4f47b7?auto=format&fit=crop&w=900&q=80"
+            src={Inchicore}
             alt="TRIM crew at work"
             className="rounded-2xl shadow-lg"
           />
